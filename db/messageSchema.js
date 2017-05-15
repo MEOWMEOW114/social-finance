@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-// import imageSchema from './imageSchema'
 
 const imageSchema = mongoose.Schema({
    data: String,
@@ -9,7 +8,7 @@ const imageSchema = mongoose.Schema({
 const messageSchema = mongoose.Schema({
   user: String,
   content: String,
-  // room: String,
+  room: String,
   image: String
 })
 

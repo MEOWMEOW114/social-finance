@@ -16,9 +16,10 @@ class App extends React.Component {
    return !!this.props.user
   }
   render() {
+    //<Dashboard user={ this.props.user }/>
     return (
       <div>
-        {this.currentUser() ? <Dashboard user={ this.props.user }/> : <WelcomePage />}
+        {this.currentUser() ? <ChatContainer/> : <WelcomePage />}
       </div>
     )
   }

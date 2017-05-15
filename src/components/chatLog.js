@@ -6,7 +6,7 @@ import RoomsContainer from './containers/roomsContainer'
 export default (props) => {
   const messages = props.messages.map ( (message) => {
 
-    return ( <ChatDetail user={message.user} message={message.content} image={message.image || ''}/> ) })
+    return (<Col xs={8}> <ChatDetail user={message.user} message={message.content} image={message.image || ''}/>   </Col>) })
 
     // <Row className="show-grid">
     //   <RoomsContainer />
@@ -18,9 +18,9 @@ export default (props) => {
     <div>
       <Grid>
         <Row className="show-grid">
-           <Col xs={8} xs={8}>
+            <RoomsContainer />
               {messages}
-            </Col>
+
          </Row>
       </Grid>
     </div>

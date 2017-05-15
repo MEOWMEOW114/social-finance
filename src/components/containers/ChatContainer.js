@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
 import { connect } from 'react-redux';
 import * as messageActions from '../../actions/messagesActions';
 import * as roomActions from '../../actions/roomActions';
 import { bindActionCreators } from 'redux';
 import ChatLog from '../chatLog';
 import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl } from 'react-bootstrap';
+import SplitPane from 'react-split-pane';
+import './Splitpane.css';
+import Ps from 'perfect-scrollbar';
 
 class ChatContainer extends Component {
   constructor(props) {
@@ -27,8 +32,12 @@ class ChatContainer extends Component {
    }
 
 
-  componentWillMount() {
-    this._init()
+ componentWillMount() {
+  this._init()
+
+ }
+
+  componentDidUpdate() {
   }
 
   componentDidMount(){
@@ -43,32 +52,32 @@ class ChatContainer extends Component {
 
   handleOnSubmit(ev) {
 
-    ev.preventDefault()
-    socket.emit('chat message', {message: this.state.input, room: this.props.room.title, user: this.props.user})
-    this.setState({ input: '' })
-  }
+   ev.preventDefault()
+   socket.emit('chat message', {message: this.state.input, room: this.props.room.title, user: this.props.user})
+   this.setState({ input: '' })
+ }
 
-  _handleMessageEvent(){
-    socket.on('chat message', (inboundMessage) => {
-       this.props.createMessage({room: this.props.room, newMessage: {user: JSON.parse(inboundMessage).user, message: JSON.parse(inboundMessage).message}})
-       console.log('received message', inboundMessage)
-     })
-  }
-
-  _handleFileUpload(){
-    socket.on('file_upload_success', (data) => {
-      console.log('file upload action was emitted', data.file)
-      this.props.createMessage({room: this.props.room, newMessage: { user: data.user, image: data.file}})
+ _handleMessageEvent(){
+   socket.on('chat message', (inboundMessage) => {
+      this.props.createMessage({room: this.props.room, newMessage: {user: JSON.parse(inboundMessage).user, message: JSON.parse(inboundMessage).message}})
+      console.log('received message', inboundMessage)
     })
-  }
+ }
 
-  _init(){
-    if(!(this.state.connected)){
-      this.props.fetchRoom()
-      socket.emit('subscribe', {room: this.props.room.title})
-        this.setState({connected: true})
-    }
-  }
+ _handleFileUpload(){
+   socket.on('file_upload_success', (data) => {
+     console.log('file upload action was emitted', data.file)
+     this.props.createMessage({room: this.props.room, newMessage: { user: data.user, image: data.file}})
+   })
+ }
+
+ _init(){
+   if(!(this.state.connected)){
+     this.props.fetchRoom()
+     socket.emit('subscribe', {room: this.props.room.title})
+       this.setState({connected: true})
+   }
+ }
 
   login() {
    const options = { display: "page"};
@@ -87,7 +96,7 @@ class ChatContainer extends Component {
             <InputGroup>
             <FormControl onChange={this.handleOnChange} value={this.state.input}/>
             <InputGroup.Addon >
-              <Glyphicon glyph="music" />
+            
               </InputGroup.Addon>
             <InputGroup.Button>
               <Button bsStyle="primary" type="submit" onClick={this.handleOnSubmit}> Send </Button>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import * as roomActions from '../../actions/roomActions'
 import { bindActionCreators } from 'redux'
 import NewRoom from '../newRoom'
-
+import StockChart from '../common/StockChart';
 class RoomsContainer extends Component {
   constructor(props){
     super()
@@ -58,7 +58,7 @@ class RoomsContainer extends Component {
     //   <div>
     //     <Col xs={4} mdPull={1}>
     //       <ListGroup>
-    //         {rooms}
+    //
     //         <NewRoom handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
     //       </ListGroup>
     //     </Col>
@@ -66,12 +66,7 @@ class RoomsContainer extends Component {
     // )
     return (
       <div>
-        <Col xs={4} mdPull={1}>
-          <ListGroup>
-            {rooms}
-            <NewRoom handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
-          </ListGroup>
-        </Col>
+          <StockChart/>
       </div>
     )
 

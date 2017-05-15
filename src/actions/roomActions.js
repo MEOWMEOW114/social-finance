@@ -1,8 +1,8 @@
 import messageApi from '../api/messageApi';
 
-export function joinRoom(roomData) { 
+export function joinRoom(roomData) {
   const payload = roomData.data
-  return { type: 'JOIN_ROOM', payload} 
+  return { type: 'JOIN_ROOM', payload}
 }
 
 export function newRoom(room) {

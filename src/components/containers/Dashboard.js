@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ChatContainer from './ChatContainer';
 import StockChart from '../common/StockChart';
 import SplitPane from 'react-split-pane';
-import './Dashboard.css';
+import './Splitpane.css';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -13,12 +13,10 @@ class Dashboard extends Component {
   render() {
 
     return (
-      <div>
-        <SplitPane split="vertical" minSize={400} defaultSize={600}>
+        <SplitPane split="vertical"  defaultSize={'50%'}>
           <StockChart/>
           <ChatContainer user={ this.props.user}/>
         </SplitPane>
-      </div>
     )
   }
 

@@ -1,14 +1,14 @@
 {
-  "name": "react-pair",
+  "name": "social-finance",
   "version": "1.0.0",
-  "description": "pair on code problems with real live humans!",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "prestart": "babel-node server/startMessage.js",
+    "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch",
-    "open:src": "babel-node server/index.js",
-    "lint": "node_modules/.bin/esw webpack.config.* src server",
+    "open:src": "babel-node tools/server.js",
+    "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "passport-google-oauth2": "^0.1.6",
     "passport-google-oauth20": "^1.0.0",
     "passport-jwt": "^2.2.1",
+    "perfect-scrollbar": "^0.7.0",
     "react": "^15.5.4",
     "react-bootstrap": "^0.30.6",
     "react-codemirror": "^0.2.6",

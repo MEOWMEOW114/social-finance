@@ -22,7 +22,6 @@ class WelcomePage extends Component {
 
   handleOnChange(ev){
     this.setState({input: ev.target.value})
-    console.log(ev.target.value)
   }
 
   handleOnSumbit(ev){
@@ -37,7 +36,6 @@ class WelcomePage extends Component {
 
   render(){
 
-    console.log( 'this.props;', this.props)
     return (
       <div>
        <PageHeader> Welcome! What would you like to be called? </PageHeader>

@@ -189,10 +189,7 @@ io.on('connection', function(socket) {
   socket.on('chat message', function(msg) {
     console.log('sending message to', msg.room)
     console.log('this message', msg)
-    let message = new Message({user: msg.user, content: msg.message})
-
-
-    // let message = new Message({user: msg.user, content: msg.message, room: msg.room})
+    let message = new Message({user: msg.user, content: msg.message, room: msg.room})
     message.save((err) => {
         if (err) return err
       })
