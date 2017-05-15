@@ -1,6 +1,10 @@
-# React Redux Starter Kit
+# React Node Express Mongodb
 
-For when you just can't has all the set-up anymore, you just can't. 
+*Social Auth: google does not work perfectly yet it is not far from working in terms of code base
+*For alternative way to go to dashboard, you could just enter a username in input box and click submit.
+
+Socket.io is used in chatroom
+Yahoo Finance data retrival
 
 ## Instructions
 
